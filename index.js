@@ -13,6 +13,10 @@ Minipipe.prototype.receive = function (data) {
   if (this._receiveFunc) {
     this._receiveFunc(data);
   }
+  // if no receiver set up, pass through
+  else {
+    this.emit(data);
+  }
 };
 
 Minipipe.prototype.to = function (targetPipe) {
